@@ -1,0 +1,257 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --primary-color: #0088a0;
+  --text-color: #333333;
+  --white-color: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease-in-out;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--primary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 12%;
+  background: var(--white-color);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  transition: var(--transition);
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.logo .well {
+  color: #0088a0;
+}
+
+.logo .bee {
+  color: black;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation Styles */
+.navbar {
+  display: flex;
+  gap: 4rem;
+}
+
+.navbar a {
+  position: relative;
+  font-size: 1.8rem;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: var(--transition);
+}
+
+.navbar a:hover {
+  color: var(--primary-color);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Home Section Styles */
+section {
+  min-height: 100vh;
+  padding: 12rem 12% 6rem;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.home-content {
+  flex: 1;
+  max-width: 60rem;
+}
+
+.home-content h1 {
+  font-size: 5.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--white-color);
+  margin-bottom: 2rem;
+}
+
+.home-content p {
+  font-size: 1.8rem;
+  color: var(--white-color);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.home-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-img img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 2rem;
+  box-shadow: 0 0 20px var(--shadow-color);
+  transition: var(--transition);
+}
+
+.home-img img:hover {
+  transform: scale(1.02);
+}
+
+#main-title {
+  color: black;
+}
+
+/* Button Styles */
+.btn-group {
+  display: flex;
+  gap: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1.5rem 4rem;
+  background: var(--white-color);
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--shadow-color);
+  background: var(--text-color);
+  color: var(--white-color);
+}
+
+/* Footer Styles */
+.footer {
+  background: var(--white-color);
+  padding: 2rem 12%;
+  text-align: center;
+}
+
+.footer-content p {
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 991px) {
+  section {
+    padding: 10rem 4% 4rem;
+  }
+
+  .header {
+    padding: 2rem 4%;
+  }
+
+  .home {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-content {
+    max-width: 100%;
+  }
+
+  .btn-group {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 4%;
+    background: var(--white-color);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .home-content h1 {
+    font-size: 4.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+
+  .home-content h1 {
+    font-size: 3.8rem;
+  }
+}

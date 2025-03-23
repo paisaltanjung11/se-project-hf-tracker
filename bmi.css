@@ -1,0 +1,311 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --primary-color: #0088a0;
+  --text-color: #333333;
+  --white-color: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease-in-out;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--primary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 12%;
+  background: var(--white-color);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  transition: var(--transition);
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.logo .well {
+  color: #0088a0;
+}
+
+.logo .bee {
+  color: black;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation Styles */
+.navbar {
+  display: flex;
+  gap: 4rem;
+}
+
+.navbar a {
+  position: relative;
+  font-size: 1.8rem;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: var(--transition);
+}
+
+.navbar a:hover {
+  color: var(--primary-color);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Container Styles */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8rem 12%;
+  min-height: 100vh;
+}
+
+/* Left Side Styles */
+.left-side {
+  flex: 1;
+  padding-top: 4rem;
+}
+
+.title {
+  margin-bottom: 3rem;
+}
+
+.title h1 {
+  font-size: 5rem;
+  font-weight: 700;
+  color: black;
+  line-height: 1.2;
+}
+
+/* Calculator Form Styles */
+.calculator-form {
+  max-width: 500px;
+}
+
+.input-group {
+  margin-bottom: 2rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 0.8rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.6rem;
+  background: var(--white-color);
+  border-radius: 10px;
+}
+
+.input-hint {
+  font-size: 1.4rem;
+  color: black;
+  opacity: 0.7;
+  margin-top: 0.5rem;
+}
+
+.calculate-btn {
+  display: inline-block;
+  padding: 1.5rem 4rem;
+  background: var(--white-color);
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px var(--shadow-color);
+  display: block;
+  margin: 2rem auto 0;
+  min-width: 200px;
+}
+
+.calculate-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--shadow-color);
+  background: var(--text-color);
+  color: var(--white-color);
+}
+
+/* Right Side Styles */
+.right-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bmi-chart {
+  max-width: 90%;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--white-color);
+  padding: 2rem;
+  border-radius: 10px;
+  z-index: 1000;
+  width: 300px;
+  text-align: center;
+}
+
+.modal h2 {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.modal button {
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  font-size: 1.6rem;
+  color: var(--white-color);
+  background: var(--primary-color);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Hide number input spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    padding: 8rem 8%;
+  }
+
+  .title h1 {
+    font-size: 4.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    flex-direction: column;
+    padding: 8rem 4%;
+  }
+
+  .left-side {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .title h1 {
+    font-size: 4rem;
+  }
+
+  .calculator-form {
+    margin: 0 auto;
+  }
+
+  .calculate-btn {
+    margin-left: 0;
+  }
+
+  .right-side {
+    width: 100%;
+  }
+
+  .bmi-chart {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 2rem 4%;
+  }
+
+  .navbar a {
+    margin-left: 2rem;
+  }
+
+  .title h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .title h1 {
+    font-size: 2.8rem;
+  }
+
+  .calculator-form {
+    padding: 0 2rem;
+  }
+}
