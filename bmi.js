@@ -42,40 +42,39 @@ function calculateBMI() {
   if (bmi < 18.5) {
     category = "Underweight";
     advice =
-      "Consider consulting a healthcare provider about gaining weight safely.";
+      "You may need to gain weight in a healthy way. Consider consulting a healthcare professional for personalized guidance.";
     categoryColor = "#3498db";
   } else if (bmi >= 18.5 && bmi < 25) {
-    category = "Normal Weight";
+    category = "Healthy Weight";
     advice =
-      "Maintain your healthy lifestyle with balanced diet and regular exercise.";
+      "Great job! Keep maintaining a balanced diet and staying active to support your overall well-being.";
     categoryColor = "#2ecc71";
   } else if (bmi >= 25 && bmi < 30) {
     category = "Overweight";
-    advice = "Focus on balanced nutrition and regular physical activity.";
+    advice =
+      "Incorporate regular physical activity and a nutritious diet to help maintain a healthy weight.";
     categoryColor = "#f1c40f";
   } else if (bmi >= 30 && bmi < 35) {
     category = "Obese";
     advice =
-      "Consider consulting a healthcare provider for weight management guidance.";
+      "Consider making lifestyle adjustments and seeking guidance from a healthcare provider for a healthier approach to weight management.";
     categoryColor = "#e67e22";
   } else {
     category = "Extremely Obese";
     advice =
-      "Please consult a healthcare provider for professional medical advice.";
+      "It's important to consult a healthcare professional to discuss safe and effective weight management strategies.";
     categoryColor = "#e74c3c";
   }
 
   // Display result
   popupResult.innerHTML = `
-    <div style="margin-bottom: 1.5rem;">
-      <strong style="font-size: 2.4rem; color: ${categoryColor}">
-        ${roundedBMI}
-      </strong>
-      <p style="font-size: 1.8rem; color: ${categoryColor}; margin: 1rem 0;">
-        ${category}
-      </p>
+    <div class="bmi-value" style="color: ${categoryColor}">
+      ${roundedBMI}
     </div>
-    <p style="color: #666; font-size: 1.6rem;">
+    <div class="bmi-category" style="color: ${categoryColor}">
+      ${category}
+    </div>
+    <p class="bmi-advice">
       ${advice}
     </p>
   `;

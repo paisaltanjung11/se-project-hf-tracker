@@ -14,3 +14,12 @@ please copy the design or structure of proper html and css based on @index.html 
 - Fix some inconsistencies in color variables
 - Add better hover effects
 - Optimize the layout for different screen sizes
+
+
+--- 
+
+ketika ud di klik tombol calculate bmi kan ada kyk bmi result, trs saran pendek kan, sama tombol close? tolong cari referensi cara popup yg bagus
+
+yg aku pengen tuh kyk gni: 
+ketika user klik tombol calculate bmi, maka akan ada hasil bmi dan kyk status apakah dia overweight misalnya, trs ada saran pendek, trs ada kyk yg bkin user penasaran misal, ingin lihat lebih detail saran? gk tau lah bahasanya gimana, kyk more details gt, trs nnti user diarahkan ke register page gt tau gk maksud aku 
+ketika user klik tombol calculate bmi, maka akan ada hasil bmi dan kyk status apakah dia overweight misalnya, trs ada saran pendek, trs ada kyk yg bkin user penasaran misal, ingin lihat lebih detail saran? gk tau lah bahasanya gimana, kyk more details gt, trs nnti user diarahkan ke register page gt tau gk maksud aku 

@@ -65,15 +65,77 @@
     <div class="modal-overlay" id="popupOverlay"></div>
     <div class="modal" id="bmiPopup">
       <div class="modal-content">
-        <h2 id="bmi-result">BMI Result</h2>
+        <div class="modal-header">
+          <div class="header-content">
+            <h2 id="bmi-result">Your BMI Result</h2>
+            <span class="info-icon">
+              <span class="tooltip">
+                BMI is a general estimate and does not account for muscle mass,
+                bone density, or overall body composition.
+              </span>
+            </span>
+          </div>
+          <button class="close-btn" onclick="closePopup()">&times;</button>
+        </div>
         <div id="popupResult"></div>
-        <button onclick="closePopup()">Close</button>
+        <div class="modal-cta">
+          <p class="cta-text">
+            Want personalized health recommendations and detailed insights?
+          </p>
+          <a href="register.html" class="cta-button">Get Detailed Analysis</a>
+          <button class="secondary-btn" onclick="closePopup()">
+            Remind Me Later
+          </button>
+        </div>
       </div>
     </div>
 
     <footer class="footer">
-      <div class="footer-content">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>GET CONNECTED</h3>
+          <ul>
+            <li><a href="#">Connectivity</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">IoT SIM Card</a></li>
+            <li><a href="#">WellBee Pro</a></li>
+            <li><a href="#">WellBee Nova</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>RESOURCES</h3>
+          <ul>
+            <li><a href="#">Using WellBee</a></li>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Supported Hardware</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>COMPANY</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Partnerships</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>SOCIAL</h3>
+          <ul>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
         <p>&copy; 2024 WellBee. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
       </div>
     </footer>
 
