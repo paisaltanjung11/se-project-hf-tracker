@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Login to WellBee - Your personal health and fitness tracking companion."
+    />
+    <title>WellBee | Login</title>
+    <link rel="stylesheet" href="login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo" aria-label="WellBee Home"
+        ><span class="well">Well</span><span class="bee">Bee</span></a
+      >
+
+      <nav class="navbar">
+        <a href="bmi.html">BMI Tracker</a>
+        <a href="#exercise">Exercise</a>
+        <a href="#nearby">Nearby</a>
+        <a href="#supplements">Supplements</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="login-box">
+        <div class="form-header">
+          <h1>Welcome Back!</h1>
+          <p>Login to access your personalized health dashboard</p>
+        </div>
+
+        <form class="login-form">
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="Enter your email"
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <div class="password-input">
+              <input
+                type="password"
+                id="password"
+                required
+                placeholder="Enter your password"
+              />
+              <button
+                type="button"
+                class="toggle-password"
+                onclick="togglePassword()"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="eye-icon"
+                >
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox" id="remember" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="login-btn">Login</button>
+
+          <div class="divider">
+            <span>OR</span>
+          </div>
+
+          <div class="social-login">
+            <button type="button" class="google-btn">
+              <img src="images/google-icon.png" alt="Google" />
+              Continue with Google
+            </button>
+          </div>
+
+          <p class="register-link">
+            Don't have an account? <a href="register.html">Register Now</a>
+          </p>
+        </form>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>GET CONNECTED</h3>
+          <ul>
+            <li><a href="#">Connectivity</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">IoT SIM Card</a></li>
+            <li><a href="#">WellBee Pro</a></li>
+            <li><a href="#">WellBee Nova</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>RESOURCES</h3>
+          <ul>
+            <li><a href="#">Using WellBee</a></li>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Supported Hardware</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>COMPANY</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Partnerships</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>SOCIAL</h3>
+          <ul>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 WellBee. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        passwordInput.type =
+          passwordInput.type === "password" ? "text" : "password";
+      }
+    </script>
+  </body>
+</html>

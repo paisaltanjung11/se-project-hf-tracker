@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Register for WellBee - Your Health and Fitness Companion"
+    />
+    <title>Register - WellBee</title>
+    <link rel="stylesheet" href="register.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <a href="index.html" class="logo">
+        <span class="well">Well</span><span class="bee">Bee</span>
+      </a>
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="register-box">
+        <div class="form-header">
+          <h1>Create Account</h1>
+          <p>Join WellBee and start your wellness journey today</p>
+        </div>
+
+        <form class="register-form">
+          <!-- Full Name -->
+          <div class="input-group">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              required
+              placeholder="Enter your full name"
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="Enter your email"
+            />
+          </div>
+
+          <!-- Password -->
+          <div class="input-group">
+            <label for="password">Password</label>
+            <div class="password-input">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                placeholder="Create a password"
+              />
+              <button type="button" class="toggle-password">
+                <svg
+                  class="eye-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="input-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="password-input">
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                required
+                placeholder="Confirm your password"
+              />
+              <button type="button" class="toggle-password">
+                <svg
+                  class="eye-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Terms and Conditions -->
+          <div class="terms-group">
+            <label class="terms-checkbox">
+              <input type="checkbox" required />
+              <span
+                >I agree to the <a href="#">Terms of Service</a> and
+                <a href="#">Privacy Policy</a></span
+              >
+            </label>
+          </div>
+
+          <!-- Register Button -->
+          <button type="submit" class="register-btn">Create Account</button>
+
+          <!-- Divider -->
+          <div class="divider">
+            <span>or</span>
+          </div>
+
+          <!-- Social Register -->
+          <div class="social-register">
+            <button type="button" class="google-btn">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                alt="Google Logo"
+              />
+              Sign up with Google
+            </button>
+          </div>
+
+          <!-- Login Link -->
+          <div class="login-link">
+            Already have an account? <a href="login.html">Log in</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Health Tracking</a></li>
+            <li><a href="#">Fitness Plans</a></li>
+            <li><a href="#">Nutrition Guide</a></li>
+            <li><a href="#">Mental Wellness</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 WellBee. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
