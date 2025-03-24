@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -36,51 +37,49 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 2rem 12%;
-  background: var(--white-color);
+  padding: 1.5rem 12%;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  box-shadow: 0 2px 10px var(--shadow-color);
-  transition: var(--transition);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-  font-size: 3rem;
-  font-weight: 800;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.logo .well {
-  color: #0088a0;
-}
-
-.logo .bee {
-  color: black;
-}
-
-.logo:hover {
-  transform: scale(1.05);
+  font-size: 2.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #006d80 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
 }
 
 /* Navigation Styles */
 .navbar {
   display: flex;
+  align-items: center;
   gap: 4rem;
+  margin-left: auto;
 }
 
-.navbar a {
-  position: relative;
-  font-size: 1.8rem;
+.nav-center {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-center a {
+  font-size: 1.6rem;
   color: var(--text-color);
-  font-weight: 600;
-  transition: var(--transition);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
 }
 
-.navbar a::after {
+.nav-center a::after {
   content: "";
   position: absolute;
   bottom: -5px;
@@ -88,15 +87,75 @@ body {
   width: 0;
   height: 2px;
   background: var(--primary-color);
-  transition: var(--transition);
+  transition: width 0.3s ease;
 }
 
-.navbar a:hover {
+.nav-center a:hover::after {
+  width: 100%;
+}
+
+.nav-right {
+  display: flex;
+  gap: 2rem;
+  margin-left: 3rem;
+}
+
+.nav-right a {
+  font-size: 1.4rem;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.6rem 1.6rem;
+  border-radius: 0.6rem;
+  transition: all 0.3s ease;
+}
+
+.sign-in {
+  color: var(--text-color);
+  background: transparent;
+}
+
+.sign-in:hover {
   color: var(--primary-color);
 }
 
-.navbar a:hover::after {
-  width: 100%;
+.sign-up {
+  color: var(--primary-color);
+  background: transparent;
+  border: 1.5px solid var(--primary-color);
+}
+
+.sign-up:hover {
+  background: rgba(0, 136, 160, 0.1);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 991px) {
+  .header {
+    padding: 1.5rem 6%;
+  }
+
+  .navbar {
+    gap: 2rem;
+  }
+
+  .nav-center {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-center {
+    display: none;
+  }
+
+  .nav-right {
+    gap: 1rem;
+  }
+
+  .nav-right a {
+    padding: 0.6rem 1.5rem;
+    font-size: 1.4rem;
+  }
 }
 
 /* Container Styles */
@@ -121,7 +180,7 @@ body {
 .title h1 {
   font-size: 5rem;
   font-weight: 700;
-  color: black;
+  color: rgb(255, 255, 255);
   line-height: 1.2;
 }
 
@@ -138,7 +197,7 @@ body {
   display: block;
   font-size: 1.7rem;
   font-weight: 600;
-  color: black;
+  color: rgb(255, 255, 255);
   margin-bottom: 0.8rem;
 }
 
@@ -152,7 +211,7 @@ body {
 
 .input-hint {
   font-size: 1.4rem;
-  color: black;
+  color: rgb(255, 255, 255);
   opacity: 0.7;
   margin-top: 0.5rem;
 }
