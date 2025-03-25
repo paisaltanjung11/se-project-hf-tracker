@@ -1,0 +1,180 @@
+/* Terms & Conditions Page Styles */
+.terms-container {
+  max-width: 900px;
+  margin: 12rem auto 6rem;
+  padding: 0 2rem;
+}
+
+.terms-header {
+  text-align: center;
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+.terms-header h1 {
+  font-size: 4rem;
+  color: var(--white-color);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.last-updated {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+}
+
+.terms-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 2rem;
+  padding: 4rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.terms-section {
+  margin-bottom: 4rem;
+}
+
+.terms-section:last-child {
+  margin-bottom: 0;
+}
+
+.terms-section h2 {
+  font-size: 2.4rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.terms-section h2::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 136, 160, 0.2);
+  margin-left: 2rem;
+}
+
+.content-box {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.content-box p {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.content-box p:last-child {
+  margin-bottom: 0;
+}
+
+.content-box ul {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.content-box ul li {
+  position: relative;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.content-box ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.9rem;
+  width: 6px;
+  height: 6px;
+  background: var(--primary-color);
+  border-radius: 50%;
+}
+
+.content-box ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .terms-container {
+    margin: 10rem auto 4rem;
+  }
+
+  .terms-header h1 {
+    font-size: 3.2rem;
+  }
+
+  .terms-content {
+    padding: 3rem 2rem;
+  }
+
+  .terms-section h2 {
+    font-size: 2rem;
+  }
+
+  .content-box {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .terms-header h1 {
+    font-size: 2.8rem;
+  }
+
+  .terms-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .terms-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .content-box {
+    padding: 1.5rem;
+  }
+}
+
+.logo {
+  font-size: 2.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #006d80 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
+  transition: transform 0.5s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo .well {
+  color: #0088a0;
+  transition: color 0.5s ease;
+}
+
+.logo .bee {
+  color: black;
+  transition: color 0.5s ease;
+}
+
+.logo:hover .well {
+  color: #006d80;
+}
+
+.logo:hover .bee {
+  color: #333;
+}
