@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WellBee Exercise - Choose from various workout options tailored to your fitness level and goals."
+    />
+    <title>WellBee | Exercise</title>
+    <link rel="stylesheet" href="exercise.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo" aria-label="WellBee Home">
+        <span class="well">Well</span><span class="bee">Bee</span>
+      </a>
+
+      <nav class="navbar">
+        <div class="nav-center">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="exercise.html" class="active">Exercise</a>
+          <a href="nutrition.html">Nutrition</a>
+          <a href="#">Nearby</a>
+        </div>
+        <div class="nav-right">
+          <a href="#" class="profile-menu" id="profileMenuBtn">
+            <img src="images/john-wick.png" alt="Profile" class="avatar" />
+            <span id="userName">User</span>
+          </a>
+          <div class="profile-dropdown" id="profileDropdown">
+            <a href="#"><i class="profile-icon">👤</i> Profile</a>
+            <a href="#"><i class="profile-icon">⚙️</i> Settings</a>
+            <a href="#"><i class="profile-icon">📝</i> Guide</a>
+            <a href="#"><i class="profile-icon">❓</i> Help Center</a>
+            <a href="index.html" id="logoutBtn"
+              ><i class="profile-icon">↪</i> Logout</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="exercise-container">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1>Find Your Perfect Workout</h1>
+          <p class="motivation">
+            Choose a workout that fits your lifestyle, goals, and fitness level
+          </p>
+        </div>
+      </section>
+
+      <!-- Workout Selection Section -->
+      <section class="workout-section" id="workout-section">
+        <div class="section-header">
+          <h2>Choose Your Workout</h2>
+          <p>Select a workout type that fits your lifestyle and goals</p>
+        </div>
+        <div class="workout-cards">
+          <div class="workout-card" id="homeWorkout">
+            <div class="workout-icon">
+              <img src="images/home-workout.png" alt="Home Workout" />
+            </div>
+            <h3>Home Workout</h3>
+            <p>
+              Perfect for beginners. No equipment needed, exercise in the
+              comfort of your home.
+            </p>
+            <div class="tag-recommended" id="homeRecommended">
+              Recommended for you
+            </div>
+            <a href="#" class="btn-secondary" data-workout="home"
+              >View Exercises</a
+            >
+          </div>
+
+          <div class="workout-card" id="outdoorWorkout">
+            <div class="workout-icon">
+              <img src="images/outdoor-workout.png" alt="Outdoor Workout" />
+            </div>
+            <h3>Outdoor Workout</h3>
+            <p>
+              Get fresh air while exercising. Includes jogging, bodyweight
+              exercises, and more.
+            </p>
+            <a href="#" class="btn-secondary" data-workout="outdoor"
+              >View Exercises</a
+            >
+          </div>
+
+          <div class="workout-card" id="gymWorkout">
+            <div class="workout-icon">
+              <img src="images/gym-workout.png" alt="Gym Workout" />
+            </div>
+            <h3>Gym Workout</h3>
+            <p>
+              For experienced users. Full equipment access for maximum results.
+            </p>
+            <a href="#" class="btn-secondary" data-workout="gym"
+              >View Exercises</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercise Details Section (Hidden by Default) -->
+      <section class="exercise-details-section" id="exerciseDetails">
+        <div class="section-header">
+          <h2 id="exerciseTypeTitle">Home Workout Exercises</h2>
+          <p>Follow these exercises for optimal results</p>
+        </div>
+
+        <!-- Home Workout Exercises -->
+        <div class="exercise-list" id="homeExercises">
+          <div class="exercise-item">
+            <div class="exercise-img">
+              <img src="images/pushup.jpg" alt="Push-ups" />
+            </div>
+            <div class="exercise-info">
+              <h3>Push-ups</h3>
+              <p>
+                Targets chest, shoulders, and triceps. Great for building upper
+                body strength.
+              </p>
+              <div class="exercise-details">
+                <span>3 sets x 10-15 reps</span>
+                <span>Difficulty: Beginner to Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise-item">
+            <div class="exercise-img">
+              <img src="images/squat.jpg" alt="Bodyweight Squats" />
+            </div>
+            <div class="exercise-info">
+              <h3>Bodyweight Squats</h3>
+              <p>
+                Targets quads, hamstrings, and glutes. Essential for lower body
+                strength.
+              </p>
+              <div class="exercise-details">
+                <span>3 sets x 15-20 reps</span>
+                <span>Difficulty: Beginner</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise-item">
+            <div class="exercise-img">
+              <img src="images/plank.jpg" alt="Plank" />
+            </div>
+            <div class="exercise-info">
+              <h3>Plank</h3>
+              <p>
+                Targets core, shoulders, and back. Excellent for building
+                stability and endurance.
+              </p>
+              <div class="exercise-details">
+                <span>3 sets x 30-60 seconds</span>
+                <span>Difficulty: Beginner to Advanced</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outdoor Workout Exercises (Hidden initially) -->
+        <div class="exercise-list" id="outdoorExercises" style="display: none">
+          <div class="exercise-item">
+            <div class="exercise-img">
+              <img src="images/jogging.jpg" alt="Jogging" />
+            </div>
+            <div class="exercise-info">
+              <h3>Jogging</h3>
+              <p>
+                Great cardio exercise that improves heart health and burns
+                calories.
+              </p>
+              <div class="exercise-details">
+                <span>20-30 minutes</span>
+                <span>Difficulty: Beginner to Advanced</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise-item">
+            <div class="exercise-img">
+              <img src="images/park-bench.jpg" alt="Park Bench Dips" />
+            </div>
+            <div class="exercise-info">
+              <h3>Park Bench Dips</h3>
+              <p>Targets triceps, shoulders, and chest using a park bench.</p>
+              <div class="exercise-details">
+                <span>3 sets x 10-15 reps</span>
+                <span>Difficulty: Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise-item">
+            <div class="exercise-img">
+              <img src="images/jumping-jacks.jpg" alt="Jumping Jacks" />
+            </div>
+            <div class="exercise-info">
+              <h3>Jumping Jacks</h3>
+              <p>
+                Full body cardio exercise that gets your heart rate up quickly.
+              </p>
+              <div class="exercise-details">
+                <span>3 sets x 30 seconds</span>
+                <span>Difficulty: Beginner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gym Workout Exercises (Hidden initially) -->
+        <div class="exercise-list" id="gymExercises" style="display: none">
+          <div class="exercise-item">
+            <div class="exercise-img">
+              <img src="images/bench-press.jpg" alt="Bench Press" />
+            </div>
+            <div class="exercise-info">
+              <h3>Bench Press</h3>
+              <p>
+                Classic chest exercise using a barbell or dumbbells on a bench.
+              </p>
+              <div class="exercise-details">
+                <span>4 sets x 8-12 reps</span>
+                <span>Difficulty: Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise-item">
+            <div class="exercise-img">
+              <img src="images/deadlift.jpg" alt="Deadlift" />
+            </div>
+            <div class="exercise-info">
+              <h3>Deadlift</h3>
+              <p>
+                Compound exercise targeting hamstrings, back, and grip strength.
+              </p>
+              <div class="exercise-details">
+                <span>3 sets x 6-10 reps</span>
+                <span>Difficulty: Intermediate to Advanced</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise-item">
+            <div class="exercise-img">
+              <img src="images/lat-pulldown.jpg" alt="Lat Pulldown" />
+            </div>
+            <div class="exercise-info">
+              <h3>Lat Pulldown</h3>
+              <p>Targets the back muscles using a cable machine.</p>
+              <div class="exercise-details">
+                <span>3 sets x 10-15 reps</span>
+                <span>Difficulty: Beginner to Intermediate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="back-to-workout">
+          <a href="#workout-section" class="btn-primary" id="backToWorkouts"
+            >Choose Another Workout</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <div class="wave-divider">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 2880 320"
+        preserveAspectRatio="none"
+      >
+        <!-- Background wave -->
+        <path
+          class="wave wave-back"
+          fill="#0b1b35"
+          fill-opacity="0.3"
+          d="M0,192L60,181.3C120,171,240,149,360,160C480,171,600,213,720,213.3C840,213,960,171,1080,170.7C1200,171,1320,213,1440,224C1560,235,1680,213,1800,181.3C1920,149,2040,107,2160,112C2280,117,2400,171,2520,197.3C2640,224,2760,224,2880,213.3C3000,203,3120,181,3180,170.7L3240,160L3240,320L3180,320C3120,320,3000,320,2880,320C2760,320,2640,320,2520,320C2400,320,2280,320,2160,320C2040,320,1920,320,1800,320C1680,320,1560,320,1440,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+        ></path>
+        <!-- Foreground wave -->
+        <path
+          class="wave"
+          fill="#0b1b35"
+          fill-opacity="1"
+          d="M0,192L60,181.3C120,171,240,149,360,160C480,171,600,213,720,213.3C840,213,960,171,1080,170.7C1200,171,1320,213,1440,224C1560,235,1680,213,1800,181.3C1920,149,2040,107,2160,112C2280,117,2400,171,2520,197.3C2640,224,2760,224,2880,213.3C3000,203,3120,181,3180,170.7L3240,160L3240,320L3180,320C3120,320,3000,320,2880,320C2760,320,2640,320,2520,320C2400,320,2280,320,2160,320C2040,320,1920,320,1800,320C1680,320,1560,320,1440,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+        ></path>
+      </svg>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>GET CONNECTED</h3>
+          <ul>
+            <li><a href="#">Connectivity</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>RESOURCES</h3>
+          <ul>
+            <li>
+              <a href="https://www.youtube.com/@WellBeeLife">Using WellBee</a>
+            </li>
+            <li><a href="t&c.html">Terms & Conditions</a></li>
+            <li><a href="#">Docs</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>COMPANY</h3>
+          <ul>
+            <li><a href="about-us.html">About Us</a></li>
+            <li>
+              <a
+                href="mailto:contact.wellbee@gmail.com?subject=Support Request&body=Hi WellBee Support,"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>SOCIAL</h3>
+          <ul>
+            <li>
+              <a href="https://www.linkedin.com/in/wellbee-founder/"
+                >LinkedIn</a
+              >
+            </li>
+            <li><a href="https://github.com/WellBee">GitHub</a></li>
+            <li><a href="https://www.youtube.com/@WellBeeLife">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 WellBee. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="exercise.js"></script>
+  </body>
+</html>
