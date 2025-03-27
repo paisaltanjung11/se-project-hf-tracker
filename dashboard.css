@@ -19,6 +19,197 @@
   --transition: all 0.3s ease;
 }
 
+/* Dark Mode Colors */
+.dark-mode {
+  --primary-color: #00b4d8;
+  --secondary-color: #00c2e0;
+  --accent-color: #ffd60a;
+  --text-color: #ffffff;
+  --text-light: #cccccc;
+  --bg-light: #121212;
+  --white: #0a0a0a;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode body {
+  background-color: #000000;
+}
+
+.dark-mode .header {
+  background: #000000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .hero-section {
+  background: #000000;
+  background-color: #000000 !important;
+  border: 1px solid rgba(0, 196, 224, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .hero-section::before {
+  background: radial-gradient(
+    circle,
+    rgba(7, 193, 227, 0.05) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+
+.dark-mode .range-indicator {
+  border-color: var(--secondary-color);
+}
+
+.dark-mode .nav-center a {
+  color: #ffffff;
+}
+
+.dark-mode .nav-center a.active {
+  color: var(--primary-color);
+}
+
+.dark-mode .footer {
+  background: #000000;
+}
+
+.dark-mode .footer-section h3 {
+  color: #04a6c2;
+}
+
+.dark-mode .footer-section ul li a {
+  color: #ffffff;
+}
+
+.dark-mode .footer-section ul li a:hover {
+  color: #04a6c2;
+}
+
+.dark-mode .footer-bottom p {
+  color: #cccccc;
+}
+
+.dark-mode .section-header h2 {
+  color: var(--secondary-color);
+}
+
+.dark-mode .bmi-recommendation h3 {
+  color: var(--secondary-color);
+}
+
+.dark-mode .progress-chart,
+.dark-mode .metric-card,
+.dark-mode .bmi-result,
+.dark-mode .bmi-recommendation {
+  background-color: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .chart-container {
+  filter: invert(0.85);
+}
+
+.dark-mode .form-group input {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .modal-content {
+  background-color: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .logo .well {
+  color: #07c1e3;
+}
+
+.dark-mode .logo .bee {
+  color: #ffffff;
+}
+
+.dark-mode .profile-dropdown {
+  background-color: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .profile-dropdown a:hover {
+  background-color: rgba(4, 166, 194, 0.1);
+}
+
+.dark-mode .profile-menu:hover {
+  background-color: rgba(4, 166, 194, 0.1);
+}
+
+.dark-mode .metric-value {
+  color: var(--secondary-color);
+}
+
+.dark-mode .category-highlight {
+  background-color: rgba(7, 193, 227, 0.1);
+}
+
+.dark-mode .btn-theme {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: #e0e0e0;
+}
+
+.dark-mode .btn-theme:hover {
+  background-color: rgba(7, 193, 227, 0.2);
+  box-shadow: 0 4px 12px rgba(7, 193, 227, 0.2);
+}
+
+.dark-mode .btn-primary {
+  background-color: #04a6c2;
+  box-shadow: 0 4px 10px rgba(4, 166, 194, 0.3);
+}
+
+.dark-mode .btn-primary:hover {
+  background-color: #07c1e3;
+  box-shadow: 0 6px 15px rgba(7, 193, 227, 0.4);
+}
+
+.dark-mode .btn-secondary {
+  background-color: #ffce3a;
+  color: #0a0a0a;
+  box-shadow: 0 4px 10px rgba(255, 206, 58, 0.3);
+}
+
+.dark-mode .btn-secondary:hover {
+  background-color: #ffe169;
+  box-shadow: 0 6px 15px rgba(255, 206, 58, 0.4);
+}
+
+.dark-mode .btn-update-pill {
+  background-color: #04a6c2;
+  box-shadow: 0 4px 10px rgba(4, 166, 194, 0.3);
+}
+
+.dark-mode .btn-update-pill:hover {
+  background-color: #07c1e3;
+  box-shadow: 0 6px 15px rgba(7, 193, 227, 0.4);
+}
+
+.dark-mode .bmi-value {
+  color: #07c1e3;
+}
+
+.dark-mode .badge {
+  background-color: rgba(7, 193, 227, 0.15);
+  border: 1px solid rgba(7, 193, 227, 0.3);
+}
+
+.dark-mode .stat-item {
+  background-color: rgba(4, 166, 194, 0.1);
+  border: 1px solid rgba(7, 193, 227, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .wave path {
+  fill: #050505 !important;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -211,12 +402,16 @@ ul {
   height: 3.2rem;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--primary-color);
 }
 
 #userName {
   font-size: 1.4rem;
   font-weight: 600;
+  color: var(--text-color);
+}
+
+.dark-mode #userName {
+  color: #ffffff;
 }
 
 /* Profile Dropdown Styles */
@@ -292,50 +487,91 @@ section {
 .hero-section {
   background: linear-gradient(135deg, var(--primary-color), #006d80);
   color: var(--white);
-  padding: 4rem;
+  padding: 4rem 4rem 3rem;
   border-radius: var(--border-radius);
   margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  border-radius: 50%;
+  transform: translate(30%, -30%);
 }
 
 .hero-content {
   text-align: center;
+  position: relative;
+  z-index: 2;
+  color: #f0f0f0;
 }
 
 .hero-content h1 {
-  font-size: 3.2rem;
-  margin-bottom: 1rem;
+  font-size: 3.4rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .motivation {
   font-size: 1.8rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
   opacity: 0.9;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+  font-style: italic;
 }
 
 .quick-stats {
   display: flex;
   justify-content: center;
-  gap: 3rem;
-  margin-top: 2rem;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
 }
 
 .stat-item {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: var(--border-radius);
-  padding: 1.5rem 2.5rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 2rem;
+  padding: 1.8rem 2.5rem;
   text-align: center;
   backdrop-filter: blur(5px);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-width: 120px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .stat-label {
   display: block;
   font-size: 1.4rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
 }
 
 .stat-value {
-  font-size: 2.4rem;
-  font-weight: 600;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 /* BMI Section */
@@ -343,19 +579,32 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 3rem;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .bmi-result,
 .bmi-recommendation {
   flex: 1;
   min-width: 30rem;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  background-color: var(--bg-light);
+  transition: transform 0.3s ease;
+}
+
+.bmi-result:hover,
+.bmi-recommendation:hover {
+  transform: translateY(-5px);
 }
 
 .bmi-value {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 700;
   color: var(--primary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: baseline;
 }
@@ -363,21 +612,27 @@ section {
 .bmi-unit {
   font-size: 1.6rem;
   color: var(--text-light);
-  margin-left: 0.5rem;
+  margin-left: 0.8rem;
 }
 
 .bmi-category {
   font-size: 1.8rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.4;
 }
 
 .category-highlight {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--normal-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  background-color: rgba(40, 167, 69, 0.1);
+  display: inline-block;
+  margin: 0 0.3rem;
 }
 
 .bmi-range {
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .range-bar {
@@ -395,12 +650,13 @@ section {
   );
   border-radius: 0.5rem;
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .range-indicator {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.8rem;
+  height: 1.8rem;
   background-color: var(--white);
   border: 3px solid var(--primary-color);
   border-radius: 50%;
@@ -408,28 +664,45 @@ section {
   top: 50%;
   left: 48%; /* Position based on BMI value, updated via JS */
   transform: translate(-50%, -50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: left 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .range-labels {
   display: flex;
   justify-content: space-between;
   font-size: 1.2rem;
+  font-weight: 500;
   color: var(--text-light);
   position: absolute;
   width: 100%;
-  top: 1.5rem;
+  top: 1.8rem;
 }
 
 .bmi-recommendation h3 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  margin-bottom: 1.8rem;
   color: var(--primary-color);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.bmi-recommendation h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 3px;
 }
 
 .bmi-recommendation p {
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  font-size: 1.5rem;
+  color: var(--text-light);
 }
 
 /* Recommendation Links */
@@ -440,7 +713,10 @@ section {
 }
 
 .recommendation-links a {
-  min-width: 180px;
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Button Styles */
@@ -632,19 +908,37 @@ section {
 }
 
 /* Progress Section */
+.progress-section {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 3rem;
+  margin-top: 4rem;
+}
+
 .progress-content {
   display: flex;
   flex-wrap: wrap;
   gap: 3rem;
+  margin-top: 2rem;
 }
 
 .progress-chart {
   flex: 2;
-  min-width: 30rem;
+  min-width: 35rem;
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.progress-chart:hover {
+  transform: translateY(-5px);
 }
 
 .progress-chart h3 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 1.5rem;
   color: var(--primary-color);
 }
@@ -659,6 +953,7 @@ section {
 .chart-container {
   height: 30rem;
   width: 100%;
+  margin-top: 1.5rem;
 }
 
 .progress-metrics {
@@ -666,41 +961,61 @@ section {
   min-width: 25rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .metric-card {
   background-color: var(--bg-light);
   border-radius: var(--border-radius);
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
 }
 
 .metric-card h4 {
-  font-size: 1.4rem;
-  color: var(--text-light);
-  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.metric-card h4::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 
 .metric-value {
-  font-size: 2.4rem;
-  font-weight: 600;
+  font-size: 3rem;
+  font-weight: 700;
   color: var(--primary-color);
   display: flex;
   align-items: baseline;
+  margin: 1.5rem 0;
 }
 
 .metric-unit {
-  font-size: 1.2rem;
-  margin-left: 0.5rem;
+  font-size: 1.4rem;
+  margin-left: 0.8rem;
   color: var(--text-light);
 }
 
 .metric-change {
-  margin-top: 0.5rem;
-  font-size: 1.3rem;
+  margin-top: 1rem;
+  font-size: 1.4rem;
   display: flex;
   flex-direction: column;
+  font-weight: 500;
 }
 
 .metric-change.positive {
@@ -918,4 +1233,302 @@ section {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+}
+
+/* Medium Stats for BMI display */
+.medium-stat .stat-value {
+  font-size: 2.2rem;
+}
+
+.medium-stat .stat-label {
+  font-size: 1.3rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+}
+
+.btn-theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
+  border-radius: 50%;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-theme:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.theme-icon {
+  font-size: 2rem;
+}
+
+/* Update BMI Button - Pill Style */
+.update-bmi-section {
+  margin-top: 4.5rem;
+  text-align: center;
+}
+
+.btn-update-pill {
+  background-color: #04a6c2;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 1.2rem 3.5rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(4, 166, 194, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+  text-align: center;
+  min-width: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-update-pill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.4s ease;
+}
+
+.btn-update-pill:hover {
+  background-color: #038fa7;
+  box-shadow: 0 8px 15px rgba(4, 166, 194, 0.3);
+  transform: translateY(-3px);
+  letter-spacing: 0.5px;
+}
+
+.btn-update-pill:hover::before {
+  left: 100%;
+}
+
+.btn-update-pill:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(4, 166, 194, 0.2);
+}
+
+/* Badges Display */
+.badges-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 2.5rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.badge:hover {
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.badge-icon {
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.badge-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Confetti Container */
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Confetti Styles */
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--accent-color);
+  border-radius: 0;
+  z-index: 10;
+}
+
+/* BMI Modal Styles */
+.bmi-modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1100;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background-color: var(--white);
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  animation: modal-appear 0.3s ease-out;
+}
+
+@keyframes modal-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 2.5rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+  color: var(--danger-color);
+}
+
+.modal-content h2 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-color);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.6rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-light);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 136, 160, 0.2);
+}
+
+.modal-content .btn-primary {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.dark-mode .hero-content {
+  color: #f0f0f0;
+}
+
+.dark-mode .hero-content h1 {
+  color: #f0f0f0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .motivation {
+  color: #b8b8b8;
+}
+
+.dark-mode .stat-item {
+  background-color: rgba(4, 166, 194, 0.1);
+  border: 1px solid rgba(7, 193, 227, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .stat-label {
+  color: #b8b8b8;
+}
+
+.dark-mode .stat-value {
+  color: #07c1e3;
+}
+
+.dark-mode .footer {
+  background: #000000;
+}
+
+.dark-mode .footer-section h3 {
+  color: #04a6c2;
+}
+
+.dark-mode .footer-section ul li a {
+  color: #ffffff;
+}
+
+.dark-mode .footer-section ul li a:hover {
+  color: #04a6c2;
+}
+
+.dark-mode .footer-bottom p {
+  color: #cccccc;
 }

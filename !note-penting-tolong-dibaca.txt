@@ -21,10 +21,10 @@ untuk edit file txt tolong kasih format sebagai berikut
 
 
 [NOTE 2]
-1.
-2.
-3.
-4.
-5.
-6.
+1. Paisal
+2. 28 march 2025
+3. dashboard, exercise, nutrition, nearby
+4. ui for 4 pages, dark mode
+5. bingung milih api + integrasi buat nearby gym/food recom
+6. bug bmi track chart in dashboard, drop down unstable??,
 7.

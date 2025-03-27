@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  initProfileDropdown();
   initWorkoutSelection();
   setUserName();
-  setupLogout();
 });
 
 // Set user name in navbar profile
@@ -11,66 +9,6 @@ function setUserName() {
   // In a real application, you would fetch this from a user session or local storage
   const userName = localStorage.getItem("userName") || "User";
   userNameElement.textContent = userName;
-}
-
-// Profile dropdown functionality
-function initProfileDropdown() {
-  const profileMenuBtn = document.getElementById("profileMenuBtn");
-  const profileDropdown = document.getElementById("profileDropdown");
-
-  // Toggle dropdown on profile click
-  profileMenuBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    toggleProfileDropdown();
-  });
-
-  // Close dropdown when clicking outside
-  document.addEventListener("click", (e) => {
-    if (
-      profileDropdown.style.display === "flex" &&
-      !profileMenuBtn.contains(e.target) &&
-      !profileDropdown.contains(e.target)
-    ) {
-      hideProfileDropdown();
-    }
-  });
-
-  // Prevent dropdown from closing when clicking inside it
-  profileDropdown.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
-}
-
-// Toggle profile dropdown
-function toggleProfileDropdown() {
-  const profileDropdown = document.getElementById("profileDropdown");
-  const profileMenuBtn = document.getElementById("profileMenuBtn");
-
-  // Check initial display style - it might be empty string on first click
-  if (profileDropdown.style.display === "flex") {
-    hideProfileDropdown();
-  } else {
-    showProfileDropdown();
-  }
-}
-
-// Show profile dropdown
-function showProfileDropdown() {
-  const profileDropdown = document.getElementById("profileDropdown");
-  const profileMenuBtn = document.getElementById("profileMenuBtn");
-
-  profileDropdown.style.display = "flex";
-  profileMenuBtn.classList.add("active");
-}
-
-// Hide profile dropdown
-function hideProfileDropdown() {
-  const profileDropdown = document.getElementById("profileDropdown");
-  const profileMenuBtn = document.getElementById("profileMenuBtn");
-
-  profileDropdown.style.display = "none";
-  profileMenuBtn.classList.remove("active");
 }
 
 // Handle workout selection and display appropriate exercises
@@ -130,25 +68,4 @@ function initWorkoutSelection() {
       behavior: "smooth",
     });
   });
-}
-
-// Handle logout functionality
-function setupLogout() {
-  const logoutBtn = document.getElementById("logoutBtn");
-
-  // Function to handle logout
-  const handleLogout = (e) => {
-    e.preventDefault();
-
-    // Show a confirmation dialog
-    if (confirm("Are you sure you want to logout?")) {
-      // In a real app, this would clear session tokens
-      localStorage.removeItem("userName");
-      window.location.href = "index.html";
-    }
-  };
-
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", handleLogout);
-  }
 }

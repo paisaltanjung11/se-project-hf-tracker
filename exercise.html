@@ -9,6 +9,7 @@
     />
     <title>WellBee | Exercise</title>
     <link rel="stylesheet" href="exercise.css" />
+    <link rel="stylesheet" href="dashboard.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,6 +17,8 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <!-- Load dark mode script early -->
+    <script src="darkmode.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -28,22 +31,17 @@
           <a href="dashboard.html">Dashboard</a>
           <a href="exercise.html" class="active">Exercise</a>
           <a href="nutrition.html">Nutrition</a>
-          <a href="#">Nearby</a>
+          <a href="nearby.html">Nearby</a>
         </div>
         <div class="nav-right">
-          <a href="#" class="profile-menu" id="profileMenuBtn">
-            <img src="images/john-wick.png" alt="Profile" class="avatar" />
+          <a href="index.html" class="profile-menu">
+            <img
+              src="images/user-icon/user2.png"
+              alt="Profile"
+              class="avatar"
+            />
             <span id="userName">User</span>
           </a>
-          <div class="profile-dropdown" id="profileDropdown">
-            <a href="#"><i class="profile-icon">👤</i> Profile</a>
-            <a href="#"><i class="profile-icon">⚙️</i> Settings</a>
-            <a href="#"><i class="profile-icon">📝</i> Guide</a>
-            <a href="#"><i class="profile-icon">❓</i> Help Center</a>
-            <a href="index.html" id="logoutBtn"
-              ><i class="profile-icon">↪</i> Logout</a
-            >
-          </div>
         </div>
       </nav>
     </header>
@@ -52,6 +50,13 @@
       <!-- Hero Section -->
       <section class="hero-section">
         <div class="hero-content">
+          <!-- Theme Toggle Button -->
+          <div class="theme-toggle">
+            <button id="themeToggleBtn" class="btn-theme">
+              <span class="theme-icon">🌙</span>
+            </button>
+          </div>
+
           <h1>Find Your Perfect Workout</h1>
           <p class="motivation">
             Choose a workout that fits your lifestyle, goals, and fitness level

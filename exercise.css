@@ -1,7 +1,7 @@
 :root {
   --primary-color: #0088a0;
   --secondary-color: #04a6c2;
-  --accent-color: #fabd02;
+  --accent-color: #04a6c2;
   --text-color: #333;
   --text-light: #666;
   --bg-light: #f5f7fa;
@@ -167,11 +167,16 @@ ul {
   border-radius: 0.6rem;
   transition: all 0.3s ease;
   background-color: transparent;
+  color: var(--text-color);
 }
 
 .profile-menu:hover,
 .profile-menu.active {
   background-color: rgba(0, 136, 160, 0.1);
+}
+
+.dark-mode .profile-menu {
+  color: #ffffff;
 }
 
 /* Logout Button in Navbar */
@@ -204,12 +209,12 @@ ul {
   height: 3.2rem;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--primary-color);
 }
 
 #userName {
   font-size: 1.4rem;
   font-weight: 600;
+  color: var(--text-color);
 }
 
 .profile-dropdown {
@@ -369,7 +374,7 @@ section {
 
 .btn-secondary {
   display: inline-block;
-  background: var(--accent-color);
+  background: #04a6c2;
   color: var(--primary-color);
   padding: 1.2rem 2.4rem;
   border-radius: var(--border-radius);
@@ -380,7 +385,7 @@ section {
 }
 
 .btn-secondary:hover {
-  background-color: #e0a802;
+  background-color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(250, 189, 2, 0.2);
 }
@@ -570,6 +575,27 @@ section {
 .footer-bottom p {
   font-size: 1.4rem;
   color: #8b8f98;
+}
+
+/* Dark Mode Styles */
+.dark-mode .footer {
+  background: #000000;
+}
+
+.dark-mode .footer-section h3 {
+  color: #04a6c2;
+}
+
+.dark-mode .footer-section ul li a {
+  color: #ffffff;
+}
+
+.dark-mode .footer-section ul li a:hover {
+  color: #04a6c2;
+}
+
+.dark-mode .footer-bottom p {
+  color: #cccccc;
 }
 
 /* Responsive */

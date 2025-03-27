@@ -1,7 +1,4 @@
 // DOM Elements
-const profileMenuBtn = document.getElementById("profileMenuBtn");
-const profileDropdown = document.getElementById("profileDropdown");
-const logoutBtn = document.getElementById("logoutBtn");
 const welcomeUserName = document.getElementById("welcomeUserName");
 const userName = document.getElementById("userName");
 const userBmi = document.getElementById("userBmi");
@@ -19,14 +16,53 @@ const bmiChart = document.getElementById("bmiChart");
 const currentWeight = document.getElementById("currentWeight");
 const monthlyWorkouts = document.getElementById("monthlyWorkouts");
 const caloriesBurned = document.getElementById("caloriesBurned");
+const motivationText = document.getElementById("motivationText");
+const welcomeMessage = document.getElementById("welcomeMessage");
+const themeToggleBtn = document.getElementById("themeToggleBtn");
+const updateBmiBtn = document.getElementById("updateBmiBtn");
+const confettiContainer = document.getElementById("confettiContainer");
+const healthyEaterBadge = document.getElementById("healthyEaterBadge");
+const workoutWarriorBadge = document.getElementById("workoutWarriorBadge");
+
+// Array of motivational quotes
+const motivationalQuotes = [
+  "Your health is your greatest wealth. Keep moving forward!",
+  "Small steps every day lead to big changes.",
+  "Progress, not perfection—keep going!",
+  "You are stronger than you think. Believe in yourself!",
+  "Lock in your goals, commit to your progress!",
+  "A promise to yourself starts with a single action. Are you in?",
+  "Discipline defines destiny!",
+  "Focus, follow through, finish!",
+  "Lock in, stay consistent!",
+];
+
+// Get time-based greeting
+function getTimeBasedGreeting() {
+  const hour = new Date().getHours();
+
+  if (hour >= 5 && hour < 12) {
+    return "Good Morning";
+  } else if (hour >= 12 && hour < 18) {
+    return "Good Afternoon";
+  } else {
+    return "Good Evening";
+  }
+}
+
+// Get random motivational quote
+function getRandomMotivationalQuote() {
+  const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
+  return motivationalQuotes[randomIndex];
+}
 
 // Mock User Data (In a real app, this would come from an API/backend)
 const userData = {
   id: 1,
   name: "John Doe",
-  bmi: 25.7,
-  weight: 78, // kg
-  height: 174, // cm
+  bmi: 22.5,
+  weight: 65, // kg
+  height: 170, // cm
   workoutPreference: null,
   completedWorkouts: 8,
   workoutHistory: [
@@ -40,15 +76,34 @@ const userData = {
     { date: "2023-05-27", type: "Gym", calories: 520 },
   ],
   bmiHistory: [
-    { date: "2023-04-01", value: 27.1 },
-    { date: "2023-04-15", value: 26.5 },
-    { date: "2023-05-01", value: 26.0 },
-    { date: "2023-05-15", value: 25.7 },
+    { date: "2023-04-01", value: 25.4 },
+    { date: "2023-04-05", value: 25.2 },
+    { date: "2023-04-10", value: 25.0 },
+    { date: "2023-04-15", value: 24.8 },
+    { date: "2023-04-20", value: 24.5 },
+    { date: "2023-04-25", value: 24.3 },
+    { date: "2023-05-01", value: 24.0 },
+    { date: "2023-05-05", value: 23.8 },
+    { date: "2023-05-10", value: 23.5 },
+    { date: "2023-05-15", value: 23.2 },
+    { date: "2023-05-20", value: 23.0 },
+    { date: "2023-05-25", value: 22.7 },
+    { date: "2023-05-30", value: 22.5 },
   ],
+  badges: {
+    healthyEater: true,
+    workoutWarrior: true,
+  },
 };
 
 // Initialize Dashboard
 function initDashboard() {
+  // Set time-based greeting
+  welcomeMessage.textContent = getTimeBasedGreeting();
+
+  // Set random motivational quote
+  motivationText.textContent = getRandomMotivationalQuote();
+
   // Set user information
   welcomeUserName.textContent = userData.name;
   userName.textContent = userData.name;
@@ -73,22 +128,219 @@ function initDashboard() {
   setWorkoutRecommendation(userData.bmi);
 
   // Set stats
-  completedWorkouts.textContent = userData.completedWorkouts;
+  if (completedWorkouts)
+    completedWorkouts.textContent = userData.completedWorkouts;
   currentWeight.textContent = userData.weight;
-  monthlyWorkouts.textContent = userData.workoutHistory.length;
+  if (monthlyWorkouts)
+    monthlyWorkouts.textContent = userData.workoutHistory.length;
 
   // Calculate total calories burned
   const totalCalories = userData.workoutHistory.reduce(
     (total, workout) => total + workout.calories,
     0
   );
-  caloriesBurned.textContent = totalCalories.toLocaleString();
+  if (caloriesBurned)
+    caloriesBurned.textContent = totalCalories.toLocaleString();
+
+  // Initialize badges
+  initBadges();
 
   // Initialize BMI history chart
   initBmiChart();
 
   // Initialize event listeners
   initEventListeners();
+
+  // Dark mode is now handled by darkmode.js
+}
+
+// Initialize badges
+function initBadges() {
+  // Show or hide badges based on user data
+  healthyEaterBadge.style.display = userData.badges.healthyEater
+    ? "flex"
+    : "none";
+  workoutWarriorBadge.style.display = userData.badges.workoutWarrior
+    ? "flex"
+    : "none";
+}
+
+// Show Update BMI modal
+function showUpdateBmiModal() {
+  // Create modal dynamically
+  const modal = document.createElement("div");
+  modal.className = "bmi-modal";
+  modal.innerHTML = `
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Update Your BMI</h2>
+      <form id="bmiForm">
+        <div class="form-group">
+          <label for="weight">Weight (kg)</label>
+          <input type="number" id="weight" value="${userData.weight}" min="30" max="300" step="0.1" required>
+        </div>
+        <div class="form-group">
+          <label for="height">Height (cm)</label>
+          <input type="number" id="height" value="${userData.height}" min="100" max="250" step="0.1" required>
+        </div>
+        <button type="submit" class="btn-primary">Calculate & Update</button>
+      </form>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  // Add event listeners
+  const closeBtn = modal.querySelector(".close-modal");
+  const form = modal.querySelector("#bmiForm");
+
+  closeBtn.addEventListener("click", () => {
+    document.body.removeChild(modal);
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const weight = parseFloat(form.querySelector("#weight").value);
+    const height = parseFloat(form.querySelector("#height").value);
+
+    if (weight && height) {
+      // Calculate new BMI
+      const newBmi = calculateBmi(weight, height);
+
+      // Check if BMI improved
+      const previousBmi = userData.bmi;
+      const previousCategory = getBmiCategory(previousBmi).category;
+      const newCategory = getBmiCategory(newBmi).category;
+
+      // Update user data
+      userData.weight = weight;
+      userData.height = height;
+      userData.bmi = newBmi;
+
+      // Add to BMI history
+      const today = new Date();
+      const dateStr = `${today.getFullYear()}-${String(
+        today.getMonth() + 1
+      ).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+      userData.bmiHistory.push({ date: dateStr, value: newBmi });
+
+      // Update UI
+      userBmi.textContent = newBmi.toFixed(1);
+      bmiValue.textContent = newBmi.toFixed(1);
+      currentWeight.textContent = weight;
+
+      // Update category and recommendation
+      const bmiStatus = getBmiCategory(newBmi);
+      bmiCategory.textContent = bmiStatus.category;
+      bmiCategoryDetail.innerHTML = `Your BMI is in the <span class="category-highlight" style="color: ${bmiStatus.color}">${bmiStatus.category}</span> range`;
+      bmiRecommendation.textContent = bmiStatus.recommendation;
+
+      // Update indicator position
+      const indicatorPosition = getBmiIndicatorPosition(newBmi);
+      bmiIndicator.style.left = `${indicatorPosition}%`;
+
+      // Show confetti if BMI improved to a better category
+      if (isBmiImproved(previousCategory, newCategory)) {
+        showConfetti();
+      }
+
+      // Recreate chart
+      initBmiChart();
+
+      // Close modal
+      document.body.removeChild(modal);
+    }
+  });
+
+  // Close if clicked outside
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      document.body.removeChild(modal);
+    }
+  });
+}
+
+// Calculate BMI
+function calculateBmi(weight, height) {
+  // BMI formula: weight(kg) / (height(m))²
+  const heightInMeters = height / 100;
+  return weight / (heightInMeters * heightInMeters);
+}
+
+// Check if BMI category improved
+function isBmiImproved(previousCategory, newCategory) {
+  const categories = ["Obese", "Overweight", "Normal", "Underweight"];
+
+  // If moving from overweight/obese towards normal, that's an improvement
+  if (
+    previousCategory === "Obese" &&
+    (newCategory === "Overweight" || newCategory === "Normal")
+  ) {
+    return true;
+  }
+
+  if (previousCategory === "Overweight" && newCategory === "Normal") {
+    return true;
+  }
+
+  // If moving from underweight to normal, that's an improvement
+  if (previousCategory === "Underweight" && newCategory === "Normal") {
+    return true;
+  }
+
+  return false;
+}
+
+// Show confetti animation
+function showConfetti() {
+  // Create and animate 50 confetti pieces
+  for (let i = 0; i < 50; i++) {
+    createConfettiPiece();
+  }
+}
+
+// Create a single confetti piece
+function createConfettiPiece() {
+  const colors = ["#fabd02", "#0088a0", "#04a6c2", "#28a745", "#ffc107"];
+  const confetti = document.createElement("div");
+
+  // Random confetti style
+  confetti.className = "confetti-piece";
+  confetti.style.backgroundColor =
+    colors[Math.floor(Math.random() * colors.length)];
+  confetti.style.width = `${Math.random() * 10 + 5}px`;
+  confetti.style.height = `${Math.random() * 10 + 5}px`;
+  confetti.style.position = "absolute";
+  confetti.style.top = "-10px";
+  confetti.style.left = `${Math.random() * 100}%`;
+  confetti.style.opacity = Math.random() + 0.5;
+  confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+  // Add to container
+  confettiContainer.appendChild(confetti);
+
+  // Animate falling
+  const animation = confetti.animate(
+    [
+      { transform: `translate(0, 0) rotate(0deg)`, opacity: 1 },
+      {
+        transform: `translate(${Math.random() * 100 - 50}px, 100px) rotate(${
+          Math.random() * 360
+        }deg)`,
+        opacity: 0,
+      },
+    ],
+    {
+      duration: Math.random() * 1000 + 1000,
+      easing: "cubic-bezier(0, .9, .57, 1)",
+      delay: Math.random() * 200,
+    }
+  );
+
+  // Remove confetti after animation
+  animation.onfinish = () => {
+    confetti.remove();
+  };
 }
 
 // Get BMI category and details
@@ -172,6 +424,10 @@ function initBmiChart() {
 
   const values = userData.bmiHistory.map((entry) => entry.value);
 
+  // Get normal range boundaries for shading
+  const normalRangeLower = 18.5;
+  const normalRangeUpper = 24.9;
+
   // Create Chart.js chart
   new Chart(bmiChart, {
     type: "line",
@@ -183,12 +439,33 @@ function initBmiChart() {
           data: values,
           borderColor: "var(--secondary-color)",
           backgroundColor: "rgba(4, 166, 194, 0.1)",
-          borderWidth: 2,
-          tension: 0.3,
+          borderWidth: 3,
+          tension: 0.4,
           fill: true,
           pointBackgroundColor: "var(--secondary-color)",
-          pointRadius: 4,
-          pointHoverRadius: 6,
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          pointBorderWidth: 2,
+          pointBorderColor: "white",
+        },
+        {
+          label: "Normal Range (Lower)",
+          data: Array(dates.length).fill(normalRangeLower),
+          borderColor: "rgba(40, 167, 69, 0.5)",
+          borderWidth: 1,
+          borderDash: [5, 5],
+          pointRadius: 0,
+          fill: false,
+        },
+        {
+          label: "Normal Range (Upper)",
+          data: Array(dates.length).fill(normalRangeUpper),
+          borderColor: "rgba(40, 167, 69, 0.5)",
+          borderWidth: 1,
+          borderDash: [5, 5],
+          pointRadius: 0,
+          fill: "-1", // Fill between this dataset and the previous one
+          backgroundColor: "rgba(40, 167, 69, 0.05)",
         },
       ],
     },
@@ -198,8 +475,10 @@ function initBmiChart() {
       scales: {
         y: {
           beginAtZero: false,
-          suggestedMin: Math.min(...values) - 1,
-          suggestedMax: Math.max(...values) + 1,
+          suggestedMin:
+            Math.min(...values) - 1 > 17 ? Math.min(...values) - 1 : 17,
+          suggestedMax:
+            Math.max(...values) + 1 < 30 ? Math.max(...values) + 1 : 30,
           grid: {
             color: "rgba(0, 0, 0, 0.05)",
           },
@@ -209,6 +488,12 @@ function initBmiChart() {
             color: "var(--text-light)",
             font: {
               size: 12,
+              weight: "bold",
+            },
+          },
+          ticks: {
+            callback: function (value) {
+              return value.toFixed(1);
             },
           },
         },
@@ -222,6 +507,7 @@ function initBmiChart() {
             color: "var(--text-light)",
             font: {
               size: 12,
+              weight: "bold",
             },
           },
         },
@@ -236,8 +522,19 @@ function initBmiChart() {
           bodyColor: "var(--white)",
           displayColors: false,
           callbacks: {
+            title: function (context) {
+              return context[0].label;
+            },
             label: function (context) {
-              return `BMI: ${context.parsed.y.toFixed(1)}`;
+              const bmi = context.parsed.y;
+              let status = "";
+
+              if (bmi < 18.5) status = "Underweight";
+              else if (bmi < 25) status = "Normal";
+              else if (bmi < 30) status = "Overweight";
+              else status = "Obese";
+
+              return [`BMI: ${bmi.toFixed(1)}`, `Status: ${status}`];
             },
           },
         },
@@ -248,108 +545,23 @@ function initBmiChart() {
 
 // Initialize event listeners
 function initEventListeners() {
-  // Profile dropdown toggle
-  if (profileMenuBtn) {
-    profileMenuBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      toggleProfileDropdown();
-    });
+  // Theme toggle handled by darkmode.js
+
+  // Update BMI button
+  if (updateBmiBtn) {
+    updateBmiBtn.addEventListener("click", showUpdateBmiModal);
   }
 
-  // Close dropdown when clicking outside
+  // Document click event for closing modals etc
   document.addEventListener("click", function (e) {
-    if (
-      profileDropdown &&
-      !profileDropdown.contains(e.target) &&
-      profileMenuBtn &&
-      !profileMenuBtn.contains(e.target) &&
-      getComputedStyle(profileDropdown).display !== "none"
-    ) {
-      hideProfileDropdown();
-    }
+    // Close modals or other UI elements if needed
   });
 
-  // Prevent dropdown from closing when clicking inside it
-  if (profileDropdown) {
-    profileDropdown.addEventListener("click", function (e) {
-      e.stopPropagation();
-    });
-  }
-
-  // Logout button in dropdown
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", handleLogout);
-  }
-
-  // Workout selection buttons
-  const workoutButtons = document.querySelectorAll(
-    ".workout-card .btn-secondary"
-  );
-  workoutButtons.forEach((button) => {
-    button.addEventListener("click", function (e) {
-      e.preventDefault();
-      const workoutType = this.parentElement.id;
-      selectWorkout(workoutType);
-    });
-  });
-
-  // Add active class to navigation links
-  const navLinks = document.querySelectorAll(".nav-center a");
-  navLinks.forEach((link) => {
-    link.addEventListener("click", function () {
-      navLinks.forEach((l) => l.classList.remove("active"));
-      this.classList.add("active");
-    });
+  // Window load event
+  window.addEventListener("load", function () {
+    // Any initialization that should happen after window load
   });
 }
 
-// Handle logout
-function handleLogout(e) {
-  e.preventDefault();
-
-  // Show a confirmation dialog
-  if (confirm("Are you sure you want to logout?")) {
-    // In a real app, this would call a logout API endpoint
-    // Redirect to index page
-    window.location.href = "index.html";
-  }
-}
-
-// Toggle profile dropdown
-function toggleProfileDropdown() {
-  // Check initial display style using getComputedStyle
-  if (getComputedStyle(profileDropdown).display === "flex") {
-    hideProfileDropdown();
-  } else {
-    showProfileDropdown();
-  }
-}
-
-// Show profile dropdown
-function showProfileDropdown() {
-  profileDropdown.style.display = "flex";
-  profileMenuBtn.classList.add("active");
-}
-
-// Hide profile dropdown
-function hideProfileDropdown() {
-  profileDropdown.style.display = "none";
-  profileMenuBtn.classList.remove("active");
-}
-
-// Handle workout selection
-function selectWorkout(workoutType) {
-  // In a real app, this would save the selection and redirect to workout details
-  console.log(`Selected workout type: ${workoutType}`);
-
-  // Here you would typically make an API call to save the selection
-  // Then redirect to a specific workout details page
-  // For this demo, we'll just show an alert
-  alert(
-    `You selected ${workoutType}. In a complete app, this would take you to specific workouts.`
-  );
-}
-
-// Call init function when DOM is loaded
+// Initialize dashboard when DOM is loaded
 document.addEventListener("DOMContentLoaded", initDashboard);

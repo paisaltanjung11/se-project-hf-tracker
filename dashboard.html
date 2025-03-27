@@ -16,6 +16,8 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <!-- Load dark mode script early -->
+    <script src="darkmode.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -28,22 +30,17 @@
           <a href="dashboard.html" class="active">Dashboard</a>
           <a href="exercise.html">Exercise</a>
           <a href="nutrition.html">Nutrition</a>
-          <a href="#">Nearby</a>
+          <a href="nearby.html">Nearby</a>
         </div>
         <div class="nav-right">
-          <a href="#" class="profile-menu" id="profileMenuBtn">
-            <img src="images/john-wick.png" alt="Profile" class="avatar" />
+          <a href="index.html" class="profile-menu">
+            <img
+              src="images/user-icon/user2.png"
+              alt="Profile"
+              class="avatar"
+            />
             <span id="userName">User</span>
           </a>
-          <div class="profile-dropdown" id="profileDropdown">
-            <a href="#"><i class="profile-icon">👤</i> Profile</a>
-            <a href="#"><i class="profile-icon">⚙️</i> Settings</a>
-            <a href="#"><i class="profile-icon">📝</i> Guide</a>
-            <a href="#"><i class="profile-icon">❓</i> Help Center</a>
-            <a href="index.html" id="logoutBtn"
-              ><i class="profile-icon">↪</i> Logout</a
-            >
-          </div>
         </div>
       </nav>
     </header>
@@ -52,20 +49,44 @@
       <!-- Hero Section - Welcome & Motivation -->
       <section class="hero-section">
         <div class="hero-content">
-          <h1>Welcome, <span id="welcomeUserName">User</span>!</h1>
-          <p class="motivation">Start Your Journey to a Healthier Life!</p>
+          <!-- Theme Toggle Button moved to top right -->
+          <div class="theme-toggle">
+            <button id="themeToggleBtn" class="btn-theme">
+              <span class="theme-icon">🌙</span>
+            </button>
+          </div>
+
+          <h1>
+            <span id="welcomeMessage">Welcome</span>,
+            <span id="welcomeUserName">User</span>!
+          </h1>
+          <p class="motivation" id="motivationText">
+            Start Your Journey to a Healthier Life!
+          </p>
+
           <div class="quick-stats">
-            <div class="stat-item">
+            <div class="stat-item medium-stat">
               <span class="stat-label">BMI</span>
               <span class="stat-value" id="userBmi">22.5</span>
+
+              <!-- Confetti Container for BMI Celebrations -->
+              <div class="confetti-container" id="confettiContainer"></div>
             </div>
-            <div class="stat-item">
+            <div class="stat-item medium-stat">
               <span class="stat-label">Status</span>
               <span class="stat-value" id="bmiCategory">Normal</span>
             </div>
-            <div class="stat-item">
-              <span class="stat-label">Workouts</span>
-              <span class="stat-value" id="completedWorkouts">2</span>
+          </div>
+
+          <!-- Badges Display -->
+          <div class="badges-container">
+            <div class="badge" id="healthyEaterBadge">
+              <span class="badge-icon">🍏</span>
+              <span class="badge-text">Healthy Eater</span>
+            </div>
+            <div class="badge" id="workoutWarriorBadge">
+              <span class="badge-icon">💪</span>
+              <span class="badge-text">Workout Warrior</span>
             </div>
           </div>
         </div>
@@ -96,6 +117,11 @@
                   <span>Obese</span>
                 </div>
               </div>
+            </div>
+
+            <!-- Update BMI Button replacing Milestone Progress -->
+            <div class="update-bmi-section">
+              <button id="updateBmiBtn" class="btn-update-pill">Update</button>
             </div>
           </div>
           <div class="bmi-recommendation">
@@ -138,28 +164,6 @@
               </div>
               <div class="metric-change positive">
                 <span>-2.5kg</span>
-                <span>Last 30 days</span>
-              </div>
-            </div>
-            <div class="metric-card">
-              <h4>Workouts</h4>
-              <div class="metric-value">
-                <span id="monthlyWorkouts">8</span>
-                <span class="metric-unit">/month</span>
-              </div>
-              <div class="metric-change positive">
-                <span>+3</span>
-                <span>Last 30 days</span>
-              </div>
-            </div>
-            <div class="metric-card">
-              <h4>Calories Burned</h4>
-              <div class="metric-value">
-                <span id="caloriesBurned">4,250</span>
-                <span class="metric-unit">kcal</span>
-              </div>
-              <div class="metric-change positive">
-                <span>+1,200</span>
                 <span>Last 30 days</span>
               </div>
             </div>
